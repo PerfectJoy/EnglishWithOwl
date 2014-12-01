@@ -3,6 +3,7 @@ package mn.alge.english;
 import mn.alge.level.Beginner;
 import mn.alge.level.Expert;
 import mn.alge.level.Intermediate;
+import mn.alge.util.TabViewPager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -20,23 +21,25 @@ public class Main extends ActionBarActivity implements PageTransformer{
 
 	private ViewPager vpager;
 	private LevelAdapter adapter;
+	private TabViewPager tabs;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		
 		setContentView(R.layout.main);
-		
+		tabs = (TabViewPager)findViewById(R.id.tabs);
 		vpager = (ViewPager)findViewById(R.id.vpager);
 		adapter = new LevelAdapter(getSupportFragmentManager());
 		vpager.setAdapter(adapter);
 		
 		vpager.setPageTransformer(false, this);
+		tabs.setViewPager(vpager);
 	}
 
 	@Override
 	public void transformPage(View view, float pos) {
-		view.setRotationY(pos * -30);
+		view.setRotationY(pos*-30);
 		
 		//int pageWidth = view.getWidth();
 		
@@ -70,6 +73,12 @@ public class Main extends ActionBarActivity implements PageTransformer{
 	
 	public class LevelAdapter extends FragmentStatePagerAdapter {
 
+		protected String[] ProductDetailPageAdapterTitles = new String[] { 
+				getResources().getString(R.string.beginner),
+				getResources().getString(R.string.intermediate),
+				getResources().getString(R.string.expert)
+		}; 
+		
 		public LevelAdapter(FragmentManager fm) {
 			super(fm);
 
@@ -93,6 +102,11 @@ public class Main extends ActionBarActivity implements PageTransformer{
 		@Override
 		public int getCount() {
 			return 3;
+		}
+		
+		@Override
+		public CharSequence getPageTitle(int position) {
+			return ProductDetailPageAdapterTitles[position % ProductDetailPageAdapterTitles.length];
 		}
 	}
 	
