@@ -19,4 +19,32 @@
     <string name="expert">Expert</string>
     <string name="title_activity_lesson">Lesson</string>
 
+    <string-array name="lessons_topic">
+        <item>Vocabulary</item>
+        <item>Finding pictures</item>
+        <item>Choose the word</item>
+        <item>Listen &amp; choose</item>
+        <item>Match words</item>
+        <item>Listen &amp; write</item>
+        <item>Write words</item>
+    </string-array>
+    <string-array name="category_list">
+        <item>People</item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item></item>
+        <item>Study</item>
+        <item>Job</item>
+        <item>Travel</item>
+        <item>Sport</item>
+        <item>Free time</item>
+        <item>Environment</item>
+        <item></item>
+        <item>Result</item>
+    </string-array>
+    
 </resources>

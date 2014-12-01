@@ -1,0 +1,26 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="@dimen/padding_activity"
+    tools:context="${relativePackage}.${activityClass}" >
+    
+    <FrameLayout
+        android:id="@+id/categoryList"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="center_horizontal"
+        tools:ignore="UselessParent" >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="@dimen/padding_activity"
+            android:layout_marginRight="@dimen/padding_activity"
+            android:background="@drawable/ic_launcher"
+            android:scaleType="centerInside"
+            android:src="@drawable/ic_settings_white"
+            tools:ignore="ContentDescription" />
+    </FrameLayout>
+</LinearLayout>

@@ -51,4 +51,13 @@
     <color name="default_circle_indicator_stroke_color">#FFDDDDDD</color>
     <dimen name="default_circle_indicator_stroke_width">1dp</dimen>
     
+    <declare-styleable name="MultiViewPager">
+        <!-- Child view inside a page to match the page size against. -->
+        <attr name="matchChildWidth" format="reference" />
+        <!-- Maximum size. -->
+        <attr name="android:maxWidth" />
+        <!-- Maximum size. -->
+        <attr name="android:maxHeight" />
+    </declare-styleable>
+    
 </resources>
