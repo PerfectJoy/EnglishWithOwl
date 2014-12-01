@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">English</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_walk_through">WalkThrough</string>
+    <string name="walkthrough_btn_text">Go</string>
+    
+    <string name="settings">Settings</string>
+    
+    <!-- beginner text -->
+    <string name="beginner">Beginner</string>
+    
+    <!-- intermediate text -->
+    <string name="intermediate">Intermediate</string>
+    
+    <!-- expert text -->
+    <string name="expert">Expert</string>
+
+</resources>

@@ -1,0 +1,31 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" 
+    xmlns:app="http://schemas.android.com/apk/res/mn.alge.english">
+
+    <android.support.v4.view.ViewPager
+        android:id="@+id/pager"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"/>
+    
+    <mn.alge.util.CirclePageIndicator
+		android:id="@+id/indicator"
+    	android:padding="10dip"
+        android:layout_marginBottom="50dp"
+        android:layout_height="wrap_content"
+        android:layout_width="fill_parent"
+        android:layout_gravity="bottom"
+        app:snap="true"/>
+    <Button
+        android:id="@+id/btnStart"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center_horizontal|bottom"
+        
+        android:text="@string/walkthrough_btn_text"
+        android:textColor="#fff"
+        android:layout_marginBottom="20dp"
+        android:visibility="gone"/>
+
+</FrameLayout>
