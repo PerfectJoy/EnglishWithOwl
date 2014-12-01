@@ -25,6 +25,31 @@
     	<item name="android:background">@color/light_blue</item>
 	    <item name="background">@color/light_blue</item>
   	</style>
+  	
+   	<style name="Beginner" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+	    <item name="actionBarStyle">@style/BeginnerActionBar</item>
+	</style>
+	<style name="BeginnerActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    	<item name="android:background">@color/light_green</item>
+	    <item name="background">@color/light_green</item>
+  	</style>
+  	
+	<style name="Intermediate" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+	    <item name="actionBarStyle">@style/IntermediateActionBar</item>
+	</style>
+	<style name="IntermediateActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    	<item name="android:background">@color/light_yellow</item>
+	    <item name="background">@color/light_yellow</item>
+  	</style>
+  	
+	<style name="Expert" parent="@style/Theme.AppCompat.Light.DarkActionBar">
+	    <item name="actionBarStyle">@style/ExpertActionBar</item>
+	</style>
+	<style name="ExpertActionBar" parent="@style/Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+    	<item name="android:background">@color/light_red</item>
+	    <item name="background">@color/light_red</item>
+  	</style>
+   	
   	<declare-styleable name="ProductDetailTabDesign">
         <attr name="pstsIndicatorColor" format="color" />
         <attr name="pstsUnderlineColor" format="color" />

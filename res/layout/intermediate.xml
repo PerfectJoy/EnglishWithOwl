@@ -1,15 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical" 
-    android:background="@android:color/black">
+    android:layout_height="match_parent" 
+	android:background="@android:color/white"
+	android:padding="@dimen/padding_activity">
+	
+    <TextView
+        android:id="@+id/intermediateCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/padding_activity"
+        android:layout_above="@+id/btnLoadIntermediate"
+        android:layout_centerHorizontal="true"
+        android:textSize="100sp"
+        android:text="sdf"
+        android:maxLines="1"
+        android:textColor="@color/light_yellow"/>
     
-    <ImageView
-        android:id="@+id/imgIntermediate"
+    
+    <Button 
+        android:id="@+id/btnLoadIntermediate"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_launcher"/>
-    
+        android:layout_centerInParent="true"
+        android:text="@string/start_lesson"
+        android:background="@drawable/btn_intermediate"
+        android:paddingLeft="@dimen/padding_activity"
+        android:drawableLeft="@drawable/ic_launcher"/>
+	
 
-</LinearLayout>
+</RelativeLayout>

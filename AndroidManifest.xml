@@ -36,6 +36,23 @@
             android:name=".Settings"
             android:label="@string/title_activity_settings" >
         </activity>
+        <activity
+            android:name="mn.alge.level.BeginnerLesson"
+            android:label="@string/beginner"
+            android:theme="@style/Beginner"><!-- 
+            <meta-data
+         		android:name="android.support.PARENT_ACTIVITY"
+         		android:value="mn.alge.level.Beginner" /> -->
+            
+        </activity>
+        <activity
+            android:name="mn.alge.level.IntermediateLesson"
+            android:label="@string/intermediate"
+            android:theme="@style/Intermediate"/>
+        <activity
+            android:name="mn.alge.level.ExpertLesson"
+            android:label="@string/expert"
+            android:theme="@style/Expert"/>
     </application>
 
 </manifest>

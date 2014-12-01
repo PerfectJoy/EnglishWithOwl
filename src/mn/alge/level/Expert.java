@@ -1,15 +1,21 @@
 package mn.alge.level;
 
 import mn.alge.english.R;
+import android.content.Intent;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.TextView;
 
-public class Expert extends Fragment{
+public class Expert extends Fragment implements OnClickListener{
 	
-	
+	private TextView expertCounter;
+	private Button btnLoadLesson;
 	View v;
 	public static Expert newInstance(int num) {
 		Expert f = new Expert();
@@ -28,20 +34,33 @@ public class Expert extends Fragment{
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container,
 			Bundle savedInstanceState) {
-			v = inflater.inflate(R.layout.expert, container, false);
+		v = inflater.inflate(R.layout.expert, container, false);
 
-		/*Regular text = (Regular) v.findViewById(R.id.walk_item_text);
-		switch (mNum) {
-		case 0:
-			text.setText(getActivity().getString(R.string.walk_one));
+		btnLoadLesson = (Button)v.findViewById(R.id.btnLoadExpert);
+		expertCounter = (TextView)v.findViewById(R.id.expertCounter);
+		
+		expertCounter.setText("0" + getString(R.string.counter_all));
+		Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font_counter.ttf");
+		expertCounter.setTypeface(font);
+		
+		btnLoadLesson.setOnClickListener(this);
+		return v;
+	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.btnLoadExpert:
+			Intent subActivity = new Intent(getActivity(),
+                    ExpertLesson.class);
+			
+			getActivity().startActivity(subActivity);
+			getActivity().overridePendingTransition(R.anim.in, R.anim.out);
 			break;
-		case 1:
-			text.setText(getActivity().getString(R.string.walk_two));
-			break;
+
 		default:
 			break;
-		}*/
-		return v;
+		}
 	}
 
 }

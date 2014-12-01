@@ -21,7 +21,7 @@ public class Splash extends Activity{
 		    @Override
 		    public void run() {
 		    	
-		    	if(sp.getBoolean("isFirstTimeLaunch", true)){
+		    	if(sp.getBoolean("isFirstTimeLaunch", false)){
 		    		Intent load =  new Intent(Splash.this, Main.class);
 		            startActivity(load);
 		            finish();
