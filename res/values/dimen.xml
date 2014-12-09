@@ -4,4 +4,9 @@
     <dimen name="padding_activity">20dp</dimen>
     <dimen name="lesson_title_width">70dp</dimen>
     
+    <item name="menuFromDegrees" format="float" type="dimen">180.0</item>
+    <item name="menuToDegrees" format="float" type="dimen">360.0</item>
+    <dimen name="menuChildSize">70dp</dimen>
+    <dimen name="menuParentSize">80dp</dimen>
+    
 </resources>

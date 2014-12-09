@@ -2,6 +2,12 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android" >
     
     <item 
+        android:title="@string/profile"
+        android:id="@+id/userLogin"
+        android:icon="@drawable/ic_launcher"
+        android:showAsAction="always"/>
+    
+    <item 
         android:title="@string/settings"
         android:id="@+id/settings"
         android:icon="@drawable/ic_settings_white"/>

@@ -7,12 +7,25 @@
     <uses-sdk
         android:minSdkVersion="11"
         android:targetSdkVersion="21" />
+    
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/CustomActionBarTheme" >
+        <meta-data
+            android:name="com.google.android.gms.games.APP_ID"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.google.android.gms.appstate.APP_ID"
+            android:value="@string/app_id" />
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
         <activity
             android:name=".Splash"
             android:label="@string/app_name"
@@ -39,20 +52,27 @@
         <activity
             android:name="mn.alge.level.BeginnerLesson"
             android:label="@string/beginner"
-            android:theme="@style/Beginner"><!-- 
+            android:theme="@style/Beginner" >
+
+            <!--
             <meta-data
          		android:name="android.support.PARENT_ACTIVITY"
-         		android:value="mn.alge.level.Beginner" /> -->
-            
+         		android:value="mn.alge.level.Beginner" />
+            -->
+
         </activity>
         <activity
             android:name="mn.alge.level.IntermediateLesson"
             android:label="@string/intermediate"
-            android:theme="@style/Intermediate"/>
+            android:theme="@style/Intermediate" />
         <activity
             android:name="mn.alge.level.ExpertLesson"
             android:label="@string/expert"
-            android:theme="@style/Expert"/>
+            android:theme="@style/Expert" />
+        <activity
+            android:name=".TestMain"
+            android:label="@string/title_activity_test_main" >
+        </activity>
     </application>
 
 </manifest>

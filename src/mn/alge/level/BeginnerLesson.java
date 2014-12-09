@@ -1,16 +1,11 @@
 package mn.alge.level;
 
 import mn.alge.english.R;
-import mn.alge.english.Settings;
-import mn.alge.english.WalkThrough.WalkItem;
 import mn.alge.util.MultiViewPager;
-import android.R.anim;
-import android.content.Intent;
+import mn.alge.util.arcmenu.ArcMenu;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.view.ViewPager.PageTransformer;
 import android.support.v7.app.ActionBarActivity;
@@ -20,8 +15,10 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewGroup.LayoutParams;
-import android.widget.Button;
+import android.view.View.OnClickListener;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -32,11 +29,15 @@ public class BeginnerLesson extends ActionBarActivity
 	private FragmentStatePagerAdapter adapter;
 	private View layoutTopic;
 	
-	private Button btnBeginnerVoc, btnBeginnerFindPictures, btnBeginnerChooseTheWords,
-		btnBeginnerListenChoose, btnBeginnerListenWrite, btnBeginnerMatchWords,btnBeginnerWriteWords;
-	
     private static float MIN_SCALE = 0.85f;
     private static float MIN_ALPHA = 0.5f;
+    
+    private static final int[] ITEM_DRAWABLES = { R.drawable.btn_bg_1_vocabulary, 
+    			R.drawable.btn_bg_2_findingpictures, R.drawable.btn_bg_3_choosewords, 
+    			R.drawable.btn_bg_4_listenchoose, R.drawable.btn_bg_5_matchwords,
+				R.drawable.btn_bg_6_listenwrite, R.drawable.btn_bg_7_writewords};
+
+    private ArcMenu arcMenu;
 	
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -45,17 +46,13 @@ public class BeginnerLesson extends ActionBarActivity
 		setContentView(R.layout.beginner_lesson);
 		
 		categoryPager = (MultiViewPager)findViewById(R.id.categoryPager);
+		
+        
 		layoutTopic = (View)findViewById(R.id.layoutTopic);
 		
-				//Topic buttons
-		btnBeginnerVoc = (Button)layoutTopic.findViewById(R.id.btnBeginnerVoc);
-		btnBeginnerFindPictures = (Button)layoutTopic.findViewById(R.id.btnBeginnerFindPictures);
-		btnBeginnerChooseTheWords=(Button)layoutTopic.findViewById(R.id.btnBeginnerChooseTheWords);
-		btnBeginnerListenChoose=(Button)layoutTopic.findViewById(R.id.btnBeginnerListenChoose);
-		btnBeginnerListenWrite=(Button)layoutTopic.findViewById(R.id.btnBeginnerListenWrite);
-		btnBeginnerMatchWords=(Button)layoutTopic.findViewById(R.id.btnBeginnerMatchWords);
-		btnBeginnerWriteWords=(Button)layoutTopic.findViewById(R.id.btnBeginnerWriteWords);
-		
+		arcMenu = (ArcMenu)layoutTopic.findViewById(R.id.beginnerMenu);
+
+        initArcMenu(arcMenu, ITEM_DRAWABLES);
 		
 		int width = getWindowManager().getDefaultDisplay().getWidth();
 		int height = getWindowManager().getDefaultDisplay().getHeight();
@@ -116,15 +113,20 @@ public class BeginnerLesson extends ActionBarActivity
 
 	@Override
 	public void onPageScrollStateChanged(int arg0) {
+		Animation fadeOut, fadeIn;
+		fadeOut = AnimationUtils.loadAnimation(this, R.anim.fade_out);
+		fadeIn = AnimationUtils.loadAnimation(this, R.anim.fade_in);
 		switch (arg0) {
 		case 0:
-			Toast.makeText(getApplicationContext(), String.valueOf(arg0), Toast.LENGTH_SHORT).show();
+			layoutTopic.setVisibility(View.VISIBLE);
 			break;
 		case 1:
-			Toast.makeText(getApplicationContext(), String.valueOf(arg0), Toast.LENGTH_SHORT).show();			
+			layoutTopic.setVisibility(View.INVISIBLE);	
+			layoutTopic.startAnimation(fadeOut);
 			break;
 		case 2:
-			Toast.makeText(getApplicationContext(), String.valueOf(arg0), Toast.LENGTH_SHORT).show();
+			layoutTopic.setVisibility(View.VISIBLE);
+			layoutTopic.startAnimation(fadeIn);
 			break;
 
 		default:
@@ -133,9 +135,7 @@ public class BeginnerLesson extends ActionBarActivity
 	}
 
 	@Override
-	public void onPageScrolled(int arg0, float arg1, int arg2) {
-		// TODO Auto-generated method stub
-		
+	public void onPageScrolled(int arg0, float arg1, int arg2) {		
 	}
 
 	@Override
@@ -173,6 +173,23 @@ public class BeginnerLesson extends ActionBarActivity
 		this.finish();
 		overridePendingTransition(R.anim.in, R.anim.out);
 	}
+	
+	private void initArcMenu(ArcMenu menu, int[] itemDrawables) {
+        final int itemCount = itemDrawables.length;
+        for (int i = 0; i < itemCount; i++) {
+            ImageView item = new ImageView(this);
+            item.setImageResource(itemDrawables[i]);
+
+            final int position = i;
+            menu.addItem(item, new OnClickListener() {
+
+                @Override
+                public void onClick(View v) {
+                    Toast.makeText(getApplicationContext(), "position:" + position, Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
 	
 	public static class CategoryBeginner extends Fragment {
 		int mNum;
