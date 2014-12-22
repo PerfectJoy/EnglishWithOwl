@@ -1,5 +1,8 @@
 package mn.alge.english;
 
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -9,6 +12,7 @@ import com.google.android.gms.common.api.PendingResult;
 import com.google.android.gms.common.api.ResultCallback;
 import com.google.android.gms.games.Games;
 import com.google.android.gms.games.GamesActivityResultCodes;
+import com.google.android.gms.games.Player;
 import com.google.android.gms.games.request.GameRequest;
 import com.google.android.gms.games.request.GameRequestBuffer;
 import com.google.android.gms.games.request.OnRequestReceivedListener;
@@ -21,12 +25,15 @@ import mn.alge.gameutils.BaseGameUtils;
 import mn.alge.level.Beginner;
 import mn.alge.level.Expert;
 import mn.alge.level.Intermediate;
+import mn.alge.util.ConnectionChecker;
 import mn.alge.util.TabViewPager;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -39,6 +46,8 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Main extends ActionBarActivity implements PageTransformer,
@@ -65,6 +74,11 @@ public class Main extends ActionBarActivity implements PageTransformer,
 	private boolean mSignInClicked = false;
 	private boolean mAutoStartSignInFlow = true;
 	
+	ConnectionChecker checkConnection;
+	boolean isConnectedInternet;
+	
+	private ImageView imgAvatar;
+	
 	private ViewPager vpager;
 	private LevelAdapter adapter;
 	private TabViewPager tabs;
@@ -72,7 +86,8 @@ public class Main extends ActionBarActivity implements PageTransformer,
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
-		
+		checkConnection = new ConnectionChecker(getApplicationContext());
+		isConnectedInternet = checkConnection.isNetworkConnected();
 		setContentView(R.layout.main);
 		
 		mGoogleApiClient = new GoogleApiClient.Builder(this)
@@ -90,6 +105,7 @@ public class Main extends ActionBarActivity implements PageTransformer,
 		vpager.setPageTransformer(false, this);
 		tabs.setViewPager(vpager);
 		
+		imgAvatar = (ImageView)findViewById(R.id.avatar);
 
 		findViewById(R.id.button_sign_in).setOnClickListener(this);
 		findViewById(R.id.button_sign_out).setOnClickListener(this);
@@ -159,15 +175,60 @@ public class Main extends ActionBarActivity implements PageTransformer,
 		showSignInBar();
 	}
 	
+	
+	
+	@Override
+	protected void onResume() {
+        mSignInClicked = true;
+        if(isConnectedInternet)
+        	mGoogleApiClient.connect();
+		super.onResume();
+	}
+
+
 	private void showSignInBar() {
 		findViewById(R.id.sign_in_bar).setVisibility(View.VISIBLE);
 		findViewById(R.id.sign_out_bar).setVisibility(View.GONE);
-		}
+		imgAvatar.setImageBitmap(null);
+	}
 
 	private void showSignOutBar() {
 		findViewById(R.id.sign_in_bar).setVisibility(View.GONE);
 		findViewById(R.id.sign_out_bar).setVisibility(View.VISIBLE);
+		Player player = Games.Players.getCurrentPlayer(mGoogleApiClient);
+        String url = player.getIconImageUrl();
+        if (url != null) {
+            ImageView vw = (ImageView) findViewById(R.id.avatar);
+
+            // load the image in the background.
+            new DownloadImageTask(vw).execute(url);
+         }
+        String email = Plus.AccountApi.getAccountName(mGoogleApiClient);
 	}
+	class DownloadImageTask extends AsyncTask<String, Void, Bitmap> {
+        ImageView bmImage;
+
+        public DownloadImageTask(ImageView bmImage) {
+            this.bmImage = bmImage;
+        }
+
+        @Override
+        protected Bitmap doInBackground(String... strings) {
+            Bitmap mIcon11 = null;
+            String url = strings[0];
+            try {
+                InputStream in = new URL(url).openStream();
+                mIcon11 = BitmapFactory.decodeStream(in);
+            } catch (IOException e) {
+                Log.e(TAG, e.getMessage());
+            }
+            return mIcon11;
+        }
+        protected void onPostExecute(Bitmap result) {
+            bmImage.setImageBitmap(result);
+            bmImage.setVisibility(View.VISIBLE);
+        }
+    }
 	private int countNotExpired(GameRequestBuffer buf) {
 		if (buf == null) {
 		    return 0;

@@ -58,6 +58,7 @@ public class ArcMenu extends RelativeLayout {
     }
 
     private void init(Context context) {
+    	if (!isInEditMode()) {
         LayoutInflater li = (LayoutInflater) context.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         li.inflate(R.layout.util_arc_menu, this);
 
@@ -79,9 +80,11 @@ public class ArcMenu extends RelativeLayout {
         });
 
         mHintView = (ImageView) findViewById(R.id.control_hint);
+    	}
     }
 
     private void applyAttrs(AttributeSet attrs) {
+    	if(!isInEditMode()){
         if (attrs != null) {
             TypedArray a = getContext().obtainStyledAttributes(attrs, R.styleable.ArcLayout, 0, 0);
 
@@ -95,6 +98,7 @@ public class ArcMenu extends RelativeLayout {
 
             a.recycle();
         }
+    	}
     }
 
     public void addItem(View item, OnClickListener listener) {

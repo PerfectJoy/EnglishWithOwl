@@ -1,10 +1,13 @@
 package mn.alge.level;
 
 import mn.alge.english.R;
+import mn.alge.lessons.Vocabulary;
 import mn.alge.util.MultiViewPager;
 import mn.alge.util.arcmenu.ArcMenu;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.support.v4.view.ViewPager.PageTransformer;
@@ -185,6 +188,31 @@ public class BeginnerLesson extends ActionBarActivity
 
                 @Override
                 public void onClick(View v) {
+                	FragmentManager fr = getSupportFragmentManager();
+                	Intent i = null;
+                	switch (position) {
+					case 0:
+						i = new Intent(getApplicationContext(), Vocabulary.class);
+						/*fr.beginTransaction().replace(R.id.beg_less_layout, Vocabulary.newInstance(position), "Voc")
+							.addToBackStack(null).commit();*/
+						break;
+					case 1:
+						break;
+					case 2:
+						break;
+					case 3:
+						break;
+					case 4:
+						break;
+					case 5:
+						break;
+					case 6:
+						break;
+
+					default:
+						break;
+					}
+                	startActivity(i);
                     Toast.makeText(getApplicationContext(), "position:" + position, Toast.LENGTH_SHORT).show();
                 }
             });
