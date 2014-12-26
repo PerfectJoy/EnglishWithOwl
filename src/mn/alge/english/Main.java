@@ -179,9 +179,9 @@ public class Main extends ActionBarActivity implements PageTransformer,
 	
 	@Override
 	protected void onResume() {
-        mSignInClicked = true;
-        if(isConnectedInternet)
-        	mGoogleApiClient.connect();
+//        mSignInClicked = true;
+//        if(isConnectedInternet)
+//        	mGoogleApiClient.connect();
 		super.onResume();
 	}
 
