@@ -73,9 +73,9 @@
             android:theme="@style/Expert" />
         
         <activity 
-            android:name="mn.alge.lessons.Vocabulary"
+            android:name="mn.alge.lessons.Vocabulary1"
             android:label="Vocabular"
-            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen"/>
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
     </application>
 
 </manifest>
