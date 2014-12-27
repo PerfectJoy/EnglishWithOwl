@@ -15,11 +15,13 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.TextView;
 
 public class FindPicture extends Activity {
 	ArrayList<Word> wordList = new ArrayList<Word>();
 	ArrayList<Word> wordList4 = new ArrayList<Word>(4);
 	private TextToSpeech tts;
+	TextView tvFindPicture;
 
 	@Override
 	protected void onStart() {
@@ -43,7 +45,6 @@ public class FindPicture extends Activity {
 		mDbHelper.createDatabase();
 		mDbHelper.open();
 
-		
 		wordList = mDbHelper.retrieveWordsFindPic();
 		Collections.shuffle(wordList);
 		wordList4.add(wordList.get(0));
@@ -55,15 +56,27 @@ public class FindPicture extends Activity {
 
 		GridView gridView = (GridView) findViewById(R.id.grid_view_find_picture);
 		// Instance of ImageAdapter Class
-		gridView.setAdapter(new ImageAdapter(this, wordList4));
+		gridView.setAdapter(new FindPictureAdapter(this, wordList4));
+
+		Collections.shuffle(wordList4);
+
+		tvFindPicture = (TextView) findViewById(R.id.tvFindPicture);
+		tvFindPicture.setText(wordList4.get(0).getEnglish().toString());
+
 		gridView.setOnItemClickListener(new OnItemClickListener() {
 
 			@SuppressWarnings("deprecation")
 			@Override
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
-				tts.speak(wordList4.get(position).getEnglish(),
-						TextToSpeech.QUEUE_FLUSH, null);
+				if (position == 0) {
+					tts.speak(wordList4.get(position).getEnglish(),
+							TextToSpeech.QUEUE_FLUSH, null);
+					//daraagiin dasgal
+				}else{
+					tts.speak("try again",
+							TextToSpeech.QUEUE_FLUSH, null);
+				}
 			}
 		});
 
