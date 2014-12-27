@@ -49,7 +49,7 @@ public class TestAdapter {
 		mDbHelper.close();
 	}
 
-	public Cursor getTestData() {
+	public Cursor getTestDataContent() {
 		try {
 			String sql = "SELECT _id, english, mongol, picture FROM Content";
 
@@ -65,7 +65,7 @@ public class TestAdapter {
 	}
 
 	// To get list of employee details
-	public ArrayList<Word> retriveallEmpDetails() throws SQLException {
+	public ArrayList<Word> retriveallWrdDetails() throws SQLException {
 		Cursor cur = mDb.query(true, "Content", new String[] { "picture",
 				"english", "mongol" }, null, null, null, null, null, null);
 		if (cur.moveToFirst()) {
