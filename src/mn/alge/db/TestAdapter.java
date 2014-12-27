@@ -1,6 +1,7 @@
 package mn.alge.db;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import android.content.Context;
 import android.database.Cursor;
@@ -14,6 +15,8 @@ public class TestAdapter {
 	private final Context mContext;
 	private SQLiteDatabase mDb;
 	private DataBaseHelper mDbHelper;
+
+	ArrayList<Word> wordList = new ArrayList<Word>();
 
 	public TestAdapter(Context context) {
 		this.mContext = context;
@@ -59,5 +62,20 @@ public class TestAdapter {
 			Log.e(TAG, "getTestData >>" + mSQLException.toString());
 			throw mSQLException;
 		}
+	}
+
+	// To get list of employee details
+	public ArrayList<Word> retriveallEmpDetails() throws SQLException {
+		Cursor cur = mDb.query(true, "Content", new String[] { "picture",
+				"english", "mongol" }, null, null, null, null, null, null);
+		if (cur.moveToFirst()) {
+			do {
+				byte[] blob = cur.getBlob(cur.getColumnIndex("picture"));
+				String english = cur.getString(cur.getColumnIndex("english"));
+				String mongol = cur.getString(cur.getColumnIndex("mongol"));
+				wordList.add(new Word(Utility.getPhoto(blob), english, mongol));
+			} while (cur.moveToNext());
+		}
+		return wordList;
 	}
 }
