@@ -85,7 +85,8 @@ public class DBAdapter {
 	public ArrayList<Word> retrieveWordsFindPic() throws SQLException {
 		// Cursor cur = mDb.query(true, "Content", new String[] { "picture",
 		// "english", "mongol" } , null, null, null, null, null, null);
-		String sql = "SELECT _id, english, mongol, picture FROM Content WHERE _id>1 AND _id<9";
+		String sql = "SELECT _id, english, mongol, picture FROM Content";
+		//String sql = "SELECT _id, english, mongol, picture FROM Content WHERE _id>1 AND _id<9";
 
 		Cursor cur = mDb.rawQuery(sql, null);
 		if (cur.moveToFirst()) {

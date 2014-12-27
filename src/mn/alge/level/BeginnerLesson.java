@@ -1,6 +1,7 @@
 package mn.alge.level;
 
 import mn.alge.english.R;
+import mn.alge.lessons.ChooseWord;
 import mn.alge.lessons.FindPicture;
 import mn.alge.lessons.Vocabulary1;
 import mn.alge.util.MultiViewPager;
@@ -205,6 +206,7 @@ public class BeginnerLesson extends ActionBarActivity
 						i = new Intent(getApplicationContext(), FindPicture.class);
 						break;
 					case 2:
+						i = new Intent(getApplicationContext(), ChooseWord.class);
 						break;
 					case 3:
 						break;
