@@ -14,12 +14,12 @@
         tools:ignore="UselessParent" >
 
         <ImageView
+            android:id="@+id/img_category"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_marginLeft="@dimen/padding_activity"
             android:layout_marginRight="@dimen/padding_activity"
-            android:background="@drawable/ic_launcher"
-            android:scaleType="centerInside"
+            android:scaleType="fitXY"
             android:src="@drawable/ic_settings_white"
             tools:ignore="ContentDescription" />
     </FrameLayout>
