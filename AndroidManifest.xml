@@ -74,7 +74,11 @@
         
         <activity 
             android:name="mn.alge.lessons.Vocabulary1"
-            android:label="Vocabular"
+            android:label="Vocabulary"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity 
+            android:name="mn.alge.lessons.FindPicture"
+            android:label="Find the Picture"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
     </application>
 

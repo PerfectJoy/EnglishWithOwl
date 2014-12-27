@@ -1,6 +1,7 @@
 package mn.alge.level;
 
 import mn.alge.english.R;
+import mn.alge.lessons.FindPicture;
 import mn.alge.lessons.Vocabulary1;
 import mn.alge.util.MultiViewPager;
 import mn.alge.util.arcmenu.ArcMenu;
@@ -201,6 +202,7 @@ public class BeginnerLesson extends ActionBarActivity
 							.addToBackStack(null).commit();*/
 						break;
 					case 1:
+						i = new Intent(getApplicationContext(), FindPicture.class);
 						break;
 					case 2:
 						break;
