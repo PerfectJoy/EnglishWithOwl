@@ -75,7 +75,7 @@ public class BeginnerLesson extends ActionBarActivity
 
             @Override
             public Fragment getItem(int position) {
-                return new CategoryBeginner();
+                return CategoryBeginner.newInstance(position);
             }
         };
 		
@@ -226,6 +226,7 @@ public class BeginnerLesson extends ActionBarActivity
 	public static class CategoryBeginner extends Fragment {
 		int mNum;
 		View v;
+		private ImageView categoryImage;
 
 		public static CategoryBeginner newInstance(int num) {
 			CategoryBeginner f = new CategoryBeginner();
@@ -240,14 +241,31 @@ public class BeginnerLesson extends ActionBarActivity
 		public void onCreate(Bundle savedInstanceState) {
 			super.onCreate(savedInstanceState);
 			mNum = getArguments() != null ? getArguments().getInt("num") : 1;
-
+			
 		}
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
 				Bundle savedInstanceState) {
-
 			v = inflater.inflate(R.layout.beginner_category_item_image, container, false);
+			categoryImage = (ImageView)v.findViewById(R.id.img_category);
+			switch (mNum) {
+			case 0:
+				categoryImage.setImageResource(R.drawable.btn_bg_2_findingpictures);
+				break;
+			case 1:
+				categoryImage.setImageResource(R.drawable.btn_bg_2_findingpictures);
+				break;
+			case 2:
+				categoryImage.setImageResource(R.drawable.btn_bg_6_listenwrite);
+				break;
+			case 3:
+				categoryImage.setImageResource(R.drawable.btn_bg_4_listenchoose);
+				break;
+
+			default:
+				break;
+			}
 			return v;
 		}
 	}
