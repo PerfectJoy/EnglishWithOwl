@@ -50,7 +50,7 @@ public class ImageAdapter extends BaseAdapter {
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (convertView == null) {
 			grid = new View(mContext);
-			grid = inflater.inflate(R.layout.vocabulary1_grid_single, null);
+			grid = inflater.inflate(R.layout.vocabulary1_grid_single, parent, false);
 			TextView textView1 = (TextView) grid.findViewById(R.id.grid_text1);
 			TextView textView2 = (TextView) grid.findViewById(R.id.grid_text2);
 			ImageView imageView = (ImageView) grid
@@ -58,10 +58,14 @@ public class ImageAdapter extends BaseAdapter {
 			textView1.setText(wordList.get(position).getEnglish());
 			textView2.setText(wordList.get(position).getMongol());
 			imageView.setImageBitmap(wordList.get(position).getBitmap());
+			imageView.setTag(wordList.get(position).getEnglish().toString());
+
 		} else {
 			grid = (View) convertView;
 		}
 		return grid;
 	}
+	
+	
 
 }
