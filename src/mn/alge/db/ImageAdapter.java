@@ -14,7 +14,7 @@ public class ImageAdapter extends BaseAdapter {
 	ArrayList<Word> wordList = new ArrayList<Word>();
 
 	// Constructor
-	public ImageAdapter(Context c, ArrayList<Word> employeeList) {
+	public ImageAdapter(Context c, ArrayList<Word> wordList) {
 		mContext = c;
 		this.wordList = wordList;
 	}
