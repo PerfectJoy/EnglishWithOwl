@@ -10,14 +10,13 @@ import android.view.ViewGroup;
 
 public class Vocabulary extends Activity{
 	
-	/*public static Vocabulary newInstance(int num) {
-		Vocabulary f = new Vocabulary();
-		// Supply num input as an argument.
-		Bundle args = new Bundle();
-		args.putInt("num", num);
-		f.setArguments(args);
-		return f;
-	}*/
+
+	@Override
+	protected void onStart() {
+		super.onStart();
+	}
+
+
 
 	@Override
 	public void onCreate(Bundle savedInstanceState) {

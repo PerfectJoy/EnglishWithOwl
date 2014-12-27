@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    
+    <!-- MAIN COLORS CODES -->
+    <color name="light_brown">#754016</color>
+    <color name="dark_brown">#4c2302</color>
+    <color name="orange">#d67617</color>
+    <color name="gray">#ead8c0</color>
 
     <color name="light_blue">#0083ff</color>
     <color name="dark_blue">#0083ff</color>

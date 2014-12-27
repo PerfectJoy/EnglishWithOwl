@@ -35,10 +35,14 @@ public class BeginnerLesson extends ActionBarActivity
     private static float MIN_SCALE = 0.85f;
     private static float MIN_ALPHA = 0.5f;
     
-    private static final int[] ITEM_DRAWABLES = { R.drawable.btn_bg_1_vocabulary, 
+    /*private static final int[] ITEM_DRAWABLES = { R.drawable.btn_bg_1_vocabulary, 
     			R.drawable.btn_bg_2_findingpictures, R.drawable.btn_bg_3_choosewords, 
     			R.drawable.btn_bg_4_listenchoose, R.drawable.btn_bg_5_matchwords,
-				R.drawable.btn_bg_6_listenwrite, R.drawable.btn_bg_7_writewords};
+				R.drawable.btn_bg_6_listenwrite, R.drawable.btn_bg_7_writewords};*/
+    private static final int[] ITEM_DRAWABLES = { R.drawable.btn_ls1_voca, 
+		R.drawable.btn_ls2_findpic, R.drawable.btn_ls3_chooseword, 
+		R.drawable.btn_ls4_listenchoose, R.drawable.btn_ls5_matchwords,
+		R.drawable.btn_ls6_listenwrite, R.drawable.btn_ls7_writewords};
 
     private ArcMenu arcMenu;
 	
@@ -188,7 +192,7 @@ public class BeginnerLesson extends ActionBarActivity
 
                 @Override
                 public void onClick(View v) {
-                	FragmentManager fr = getSupportFragmentManager();
+                	//FragmentManager fr = getSupportFragmentManager();
                 	Intent i = null;
                 	switch (position) {
 					case 0:
