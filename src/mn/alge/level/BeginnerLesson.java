@@ -1,7 +1,7 @@
 package mn.alge.level;
 
 import mn.alge.english.R;
-import mn.alge.lessons.Vocabulary;
+import mn.alge.lessons.Vocabulary1;
 import mn.alge.util.MultiViewPager;
 import mn.alge.util.arcmenu.ArcMenu;
 import android.content.Intent;
@@ -196,7 +196,7 @@ public class BeginnerLesson extends ActionBarActivity
                 	Intent i = null;
                 	switch (position) {
 					case 0:
-						i = new Intent(getApplicationContext(), Vocabulary.class);
+						i = new Intent(getApplicationContext(), Vocabulary1.class);
 						/*fr.beginTransaction().replace(R.id.beg_less_layout, Vocabulary.newInstance(position), "Voc")
 							.addToBackStack(null).commit();*/
 						break;
