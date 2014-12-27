@@ -1,17 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical" >
+    android:gravity="center">
 
     <GridView
         android:id="@+id/grid_view_find_picture"
         android:layout_width="fill_parent"
-        android:layout_height="452dp"
-        android:columnWidth="90dp"
+        android:layout_height="wrap_content"
         android:gravity="center"
         android:horizontalSpacing="10dp"
-        android:numColumns="auto_fit"
+        android:numColumns="2"
         android:stretchMode="columnWidth"
         android:verticalSpacing="10dp" >
 
@@ -19,8 +18,20 @@
     <TextView android:id="@+id/tvFindPicture"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/grid_view_find_picture"
         android:text="test"
-        android:layout_gravity="center"
-        android:layout_weight="1"/>
+        android:textStyle="bold"
+        android:layout_gravity="center"/>
+    <TextView
+        android:id="@+id/vocaCounterText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="50dp"
+        android:text="Score: 0"
+        android:textSize="24sp"
+        android:textColor="@color/light_green"/>
 
-</LinearLayout>
+</RelativeLayout>
