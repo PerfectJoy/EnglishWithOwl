@@ -3,22 +3,17 @@ package mn.alge.db;
 import java.util.ArrayList;
 
 import mn.alge.english.R;
-
 import android.content.Context;
-import android.database.Cursor;
-import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 public class ImageAdapter extends BaseAdapter {
 	private Context mContext;
 	ArrayList<Word> wordList = new ArrayList<Word>();
-	private DBAdapter mDbHelper;
 
 	// Constructor
 	public ImageAdapter(Context c, ArrayList<Word> wordList) {
@@ -51,19 +46,6 @@ public class ImageAdapter extends BaseAdapter {
 		// return imageView;
 		View grid;
 		
-		//DBAdapter mDbHelper = new DBAdapter(this);
-		mDbHelper.createDatabase();
-		mDbHelper.open();
-
-		Cursor testdata = mDbHelper.getTestDataContent();
-		
-		String english = Utility.GetColumnValueWord(testdata, "english");
-		String mongol = Utility.GetColumnValueWord(testdata, "mongol");
-		byte[] blob = Utility.GetColumnValuePicture(testdata, "picture");
-		
-		Bitmap b;
-		b=Utility.getPhoto(blob);
-		
 		LayoutInflater inflater = (LayoutInflater) mContext
 				.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
 		if (convertView == null) {
@@ -73,9 +55,9 @@ public class ImageAdapter extends BaseAdapter {
 			TextView textView2 = (TextView) grid.findViewById(R.id.grid_text2);
 			ImageView imageView = (ImageView) grid
 					.findViewById(R.id.grid_image);
-			textView1.setText(english);
-			textView2.setText(mongol);
-			imageView.setImageBitmap(b);
+			textView1.setText(wordList.get(position).getEnglish());
+			textView2.setText(wordList.get(position).getMongol());
+			imageView.setImageBitmap(wordList.get(position).getBitmap());
 		} else {
 			grid = (View) convertView;
 		}
