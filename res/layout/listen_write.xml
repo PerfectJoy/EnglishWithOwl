@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/ivListenWrite"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/btnListenWriteHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_send_request" />
+
+        <TextView
+            android:id="@+id/tvListenWrite"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"/>
+
+        <ImageButton
+            android:id="@+id/btnListenWriteDugar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_launcher" />
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btnWrd0"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnWrd1"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd2"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd3"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd4"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btnWrd5"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd6"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd7"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd8"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd9"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btnWrd10"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd11"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd12"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd13"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+
+            <Button
+                android:id="@+id/btnWrd14"
+                android:layout_weight="1"
+                android:enabled="false"
+                android:visibility="invisible" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

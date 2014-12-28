@@ -4,6 +4,7 @@ import mn.alge.english.R;
 import mn.alge.lessons.ChooseWord;
 import mn.alge.lessons.FindPicture;
 import mn.alge.lessons.ListenChoose;
+import mn.alge.lessons.ListenWrite;
 import mn.alge.lessons.Vocabulary1;
 import mn.alge.util.MultiViewPager;
 import mn.alge.util.arcmenu.ArcMenu;
@@ -215,6 +216,7 @@ public class BeginnerLesson extends ActionBarActivity
 					case 4:
 						break;
 					case 5:
+						i = new Intent(getApplicationContext(), ListenWrite.class);
 						break;
 					case 6:
 						break;

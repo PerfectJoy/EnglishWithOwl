@@ -88,6 +88,10 @@
             android:name="mn.alge.lessons.ChooseWord"
             android:label="Choose Word"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity 
+            android:name="mn.alge.lessons.ListenWrite"
+            android:label="Listen and Write"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
     </application>
 
 </manifest>
