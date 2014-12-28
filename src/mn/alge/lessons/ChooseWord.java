@@ -48,7 +48,7 @@ public class ChooseWord extends Activity {
 		mDbHelper.createDatabase();
 		mDbHelper.open();
 
-		wordList = mDbHelper.retrieveWordsFindPic();
+		wordList = mDbHelper.retrieveWords1();
 		Collections.shuffle(wordList);
 		wordList1.add(wordList.get(0));
 		wordList1.add(wordList.get(1));

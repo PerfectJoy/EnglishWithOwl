@@ -65,28 +65,9 @@ public class DBAdapter {
 	}
 
 	// To get list of employee details
-	public ArrayList<Word> retriveallWrdDetails() throws SQLException {
-		// Cursor cur = mDb.query(true, "Content", new String[] { "picture",
-		// "english", "mongol" } , null, null, null, null, null, null);
-		String sql = "SELECT _id, english, mongol, picture FROM Content";
-
-		Cursor cur = mDb.rawQuery(sql, null);
-		if (cur.moveToFirst()) {
-			do {
-				byte[] blob = cur.getBlob(cur.getColumnIndex("picture"));
-				String english = cur.getString(cur.getColumnIndex("english"));
-				String mongol = cur.getString(cur.getColumnIndex("mongol"));
-				wordList.add(new Word(Utility.getPhoto(blob), english, mongol));
-			} while (cur.moveToNext());
-		}
-		return wordList;
-	}
-
-	public ArrayList<Word> retrieveWordsFindPic() throws SQLException {
-		// Cursor cur = mDb.query(true, "Content", new String[] { "picture",
-		// "english", "mongol" } , null, null, null, null, null, null);
-		String sql = "SELECT _id, english, mongol, picture FROM Content";
+	public ArrayList<Word> retrieveWords1() throws SQLException {
 		//String sql = "SELECT _id, english, mongol, picture FROM Content WHERE _id>1 AND _id<9";
+		String sql = "SELECT _id, english, mongol, picture FROM Content";
 
 		Cursor cur = mDb.rawQuery(sql, null);
 		if (cur.moveToFirst()) {

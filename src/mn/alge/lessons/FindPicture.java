@@ -87,7 +87,7 @@ public class FindPicture extends Activity {
 		mDbHelper.createDatabase();
 		mDbHelper.open();
 		
-		wordList = mDbHelper.retrieveWordsFindPic();
+		wordList = mDbHelper.retrieveWords1();
 
 		Collections.shuffle(wordList);
 		wordList4.add(wordList.get(0));

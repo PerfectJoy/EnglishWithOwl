@@ -42,7 +42,7 @@ public class Vocabulary1 extends Activity {
 		mDbHelper.createDatabase();
 		mDbHelper.open();
 
-		wordList = mDbHelper.retriveallWrdDetails();
+		wordList = mDbHelper.retrieveWords1();
 
 		mDbHelper.close();
 

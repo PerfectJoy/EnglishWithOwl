@@ -19,7 +19,7 @@ import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
-@SuppressLint("NewApi") public class ListenChoose extends Activity {
+public class ListenChoose extends Activity {
 
 	ArrayList<Word> wordList = new ArrayList<Word>();
 	ArrayList<Word> wordList4 = new ArrayList<Word>(4);
@@ -32,7 +32,7 @@ import android.widget.TextView;
 		super.onStart();
 	}
 
-	@SuppressLint("NewApi") @Override
+	@Override
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.listen_choose);
@@ -49,7 +49,7 @@ import android.widget.TextView;
 		mDbHelper.createDatabase();
 		mDbHelper.open();
 
-		wordList = mDbHelper.retrieveWordsFindPic();
+		wordList = mDbHelper.retrieveWords1();
 		Collections.shuffle(wordList);
 		wordList4.add(wordList.get(0));
 		wordList4.add(wordList.get(1));
@@ -64,7 +64,7 @@ import android.widget.TextView;
 
 		final int n;
 		n = randInt(0, 3);
-		
+
 		tvListenChoose = (TextView) findViewById(R.id.tvListenChoose);
 		tvListenChoose.setText(wordList4.get(n).getMongol().toString());
 
