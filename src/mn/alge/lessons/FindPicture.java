@@ -68,15 +68,15 @@ public class FindPicture extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				if (position == result) {
-					tts.speak(wordList4.get(position).getEnglish(),
-							TextToSpeech.QUEUE_FLUSH, null);
-					//tvFindPicture.setText("");
-					//grid.setAdapter(null);
-					//setImages();
+//					tts.speak(wordList4.get(position).getEnglish(),
+//							TextToSpeech.QUEUE_FLUSH, null);
+					tts.speak("wonderful", TextToSpeech.QUEUE_FLUSH, null);
+					Toast.makeText(getApplicationContext(), "+1 оноо авлаа", 0).show();
+					finish();
 				}else{
 					tts.speak("try again",
 							TextToSpeech.QUEUE_FLUSH, null);
-					Toast.makeText(getApplicationContext(), "wrong answer", Toast.LENGTH_SHORT).show();
+					Toast.makeText(getApplicationContext(), "дахин оролдоно уу", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

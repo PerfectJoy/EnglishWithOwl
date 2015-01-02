@@ -73,7 +73,7 @@
             android:theme="@style/Expert" />
         
         <activity 
-            android:name="mn.alge.lessons.Vocabulary1"
+            android:name="mn.alge.lessons.Vocabulary"
             android:label="Vocabulary"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
         <activity 
@@ -91,6 +91,14 @@
         <activity 
             android:name="mn.alge.lessons.ListenWrite"
             android:label="Listen and Write"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity 
+            android:name="mn.alge.lessons.WriteWord"
+            android:label="Write Word"
+            android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
+        <activity 
+            android:name="mn.alge.lessons.MatchWord"
+            android:label="Write Word"
             android:theme="@android:style/Theme.Light.NoTitleBar.Fullscreen" />
     </application>
 

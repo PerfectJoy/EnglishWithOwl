@@ -17,6 +17,7 @@ import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import android.widget.AdapterView.OnItemClickListener;
 
 public class ChooseWord extends Activity {
@@ -70,9 +71,13 @@ public class ChooseWord extends Activity {
 				// TODO Auto-generated method stub
 				if (n == 1) {
 					tts.speak("try again", TextToSpeech.QUEUE_FLUSH, null);
+					Toast.makeText(getApplicationContext(), "дахин оролдоно уу", Toast.LENGTH_SHORT).show();
 				} else {
-					tts.speak(wordList1.get(n).getEnglish(),
-							TextToSpeech.QUEUE_FLUSH, null);
+//					tts.speak(wordList1.get(n).getEnglish(),
+//							TextToSpeech.QUEUE_FLUSH, null);
+					tts.speak("how nice", TextToSpeech.QUEUE_FLUSH, null);
+					Toast.makeText(getApplicationContext(), "+1 оноо авлаа", 0).show();
+					finish();
 				}
 
 			}
@@ -84,10 +89,14 @@ public class ChooseWord extends Activity {
 			public void onClick(View v) {
 				// TODO Auto-generated method stub
 				if (n == 1) {
-					tts.speak(btn2.getText().toString(),
-							TextToSpeech.QUEUE_FLUSH, null);
+//					tts.speak(btn2.getText().toString(),
+//							TextToSpeech.QUEUE_FLUSH, null);
+					tts.speak("correct", TextToSpeech.QUEUE_FLUSH, null);
+					Toast.makeText(getApplicationContext(), "+1 оноо авлаа", 0).show();
+					finish();
 				} else {
 					tts.speak("try again", TextToSpeech.QUEUE_FLUSH, null);
+					Toast.makeText(getApplicationContext(), "дахин оролдоно уу", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});

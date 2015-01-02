@@ -18,6 +18,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ListenChoose extends Activity {
 
@@ -75,11 +76,15 @@ public class ListenChoose extends Activity {
 			public void onItemClick(AdapterView<?> parent, View view,
 					int position, long id) {
 				if (position == n) {
-					tts.speak(wordList4.get(position).getEnglish(),
-							TextToSpeech.QUEUE_FLUSH, null);
+//					tts.speak(wordList4.get(position).getEnglish(),
+//							TextToSpeech.QUEUE_FLUSH, null);
 					// daraagiin dasgal
+					tts.speak("good", TextToSpeech.QUEUE_FLUSH, null);
+					Toast.makeText(getApplicationContext(), "+1 оноо авлаа", 0).show();
+					finish();
 				} else {
 					tts.speak("try again", TextToSpeech.QUEUE_FLUSH, null);
+					Toast.makeText(getApplicationContext(), "дахин оролдоно уу", Toast.LENGTH_SHORT).show();
 				}
 			}
 		});
@@ -102,6 +107,7 @@ public class ListenChoose extends Activity {
 						TextToSpeech.QUEUE_FLUSH, null);
 			}
 		});
+		btnDugar.performClick();
 
 	}
 

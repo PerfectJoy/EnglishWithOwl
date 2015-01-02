@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <ImageView
+        android:id="@+id/ivWriteWord"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:src="@drawable/ic_launcher" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+
+        <ImageButton
+            android:id="@+id/btnWriteWordHelp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_send_request" />
+
+        <TextView
+            android:id="@+id/tvWriteWord"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"/>
+    </LinearLayout>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" >
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btnWrite0"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnWrite1"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnWrite2"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnWrite3"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnWrite4"
+                android:layout_weight="1" />
+        </TableRow>
+
+        <TableRow>
+
+            <Button
+                android:id="@+id/btnWrite5"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnWrite6"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btnWrite7"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnWrite8"
+                android:layout_weight="1" />
+
+            <Button
+                android:id="@+id/btnWrite9"
+                android:layout_weight="1" />
+        </TableRow>
+    </TableLayout>
+
+</LinearLayout>

@@ -12,6 +12,7 @@ import mn.alge.english.R;
 import android.app.Activity;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -72,13 +73,13 @@ public class ListenWrite extends Activity {
 
 		ivListenWrite = (ImageView) findViewById(R.id.ivListenWrite);
 		ivListenWrite.setImageBitmap(wordList1.get(0).getBitmap());
-
+		
 		int length = wordList1.get(0).getEnglish().length();
 
 		tvListenWrite = (TextView) findViewById(R.id.tvListenWrite);
 		// ugnii urtaar _ ene temdegt tawij bn
-//		String repeated = new String(new char[length]).replace("\0", "_");
-//		tvListenWrite.setText(repeated);
+		// String repeated = new String(new char[length]).replace("\0", "_");
+		// tvListenWrite.setText(repeated);
 
 		// ugiig usgeer ni salgaj uur array ruu hiij bn
 		for (int i = 0; i < length; i++) {
@@ -86,6 +87,7 @@ public class ListenWrite extends Activity {
 			wordLetterArray.add(Character.toString(wordList1.get(0)
 					.getEnglish().toString().charAt(i)));
 		}
+		
 		// usegnuudee holii
 		Collections.shuffle(wordLetterArray);
 
@@ -469,11 +471,21 @@ public class ListenWrite extends Activity {
 						tvListenWrite.setText(btnLetter);
 						nextL++;
 						numButtons[index].setVisibility(View.INVISIBLE);
+						if(tvListenWrite.getText().toString().equals(wordList1.get(0).getEnglish())){
+							tts.speak("fantastic", TextToSpeech.QUEUE_FLUSH, null);
+							Toast.makeText(getApplicationContext(), "+1 оноо авлаа", 0).show();
+							finish();
+						}
+					} else {
+						tts.speak("try again", TextToSpeech.QUEUE_FLUSH, null);
+						Toast.makeText(getApplicationContext(),
+								"дахин оролдоно уу", Toast.LENGTH_SHORT).show();
 					}
 				}
 			});
 		}
-
+		
+		
 		btnHelp = (ImageButton) findViewById(R.id.btnListenWriteHelp);
 		btnHelp.setOnClickListener(new View.OnClickListener() {
 
@@ -493,7 +505,7 @@ public class ListenWrite extends Activity {
 						TextToSpeech.QUEUE_FLUSH, null);
 			}
 		});
-
+		btnDugar.performClick();
 	}
 
 	@Override

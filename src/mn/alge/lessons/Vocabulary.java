@@ -8,6 +8,7 @@ import mn.alge.db.ImageAdapter;
 import mn.alge.db.Word;
 import mn.alge.english.R;
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
 import android.speech.tts.TextToSpeech;
 import android.view.View;
@@ -16,7 +17,7 @@ import android.widget.AdapterView.OnItemClickListener;
 import android.widget.GridView;
 import android.widget.Toast;
 
-public class Vocabulary1 extends Activity {
+public class Vocabulary extends Activity {
 
 	ArrayList<Word> wordList = new ArrayList<Word>();
 	private TextToSpeech tts;
@@ -30,6 +31,18 @@ public class Vocabulary1 extends Activity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.vocabulary1);
+		
+		Intent intent = getIntent();
+		//int[] sedew = intent.getIntArrayExtra("sedew");
+		int s = intent.getIntExtra("sedew", 0);
+//		StringBuilder strNum = new StringBuilder();
+//
+//		for (int num : sedew) 
+//		{
+//		     strNum.append(num);
+//		}
+//		int finalIntSedew = Integer.parseInt(strNum.toString());
+		Toast.makeText(getApplicationContext(), Integer.toString(s), 0).show();
 		tts = new TextToSpeech(getApplicationContext(), new TextToSpeech.OnInitListener() {
 			@Override
 			public void onInit(int status) {
