@@ -4,19 +4,20 @@
     android:layout_height="match_parent" 
 	android:background="@android:color/white"
 	android:padding="@dimen/padding_activity">
+	
     
-    
+	
     <TextView
         android:id="@+id/expertCounter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/padding_activity"
-        android:layout_above="@+id/btnLoadExpert"
+        android:layout_above="@+id/btnLoadIntermediate"
         android:layout_centerHorizontal="true"
         android:textSize="100sp"
-        android:text="sdf"
         android:maxLines="1"
         android:textColor="@color/light_red"/>
+    
     
     <Button 
         android:id="@+id/btnLoadExpert"
@@ -26,7 +27,20 @@
         android:text="@string/start_lesson"
         android:background="@drawable/btn_expert"
         android:paddingLeft="@dimen/padding_activity"
-        android:drawableLeft="@drawable/ic_launcher"/>
-	
+        android:drawableLeft="@drawable/ic_launcher"
+        android:enabled="false"/>
+	<FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#80ffffff">
+        
+        <ImageView
+        android:id="@+id/imgLock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:src="@drawable/lock"/>
+        
+    </FrameLayout>
 
 </RelativeLayout>

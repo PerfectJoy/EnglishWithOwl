@@ -48,6 +48,8 @@
         <item></item>
         <item>Result</item>
     </string-array>
+    
+    <string name="error_load_activity">Хичээлийг нээхэд таны оноо хүрэхгүй байна.</string>
 
     <!-- Google game service -->
 

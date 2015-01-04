@@ -6,16 +6,21 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class Expert extends Fragment implements OnClickListener{
 	
 	private TextView expertCounter;
 	private Button btnLoadLesson;
+	private ImageView imgLock;
 	View v;
 	public static Expert newInstance(int num) {
 		Expert f = new Expert();
@@ -38,12 +43,13 @@ public class Expert extends Fragment implements OnClickListener{
 
 		btnLoadLesson = (Button)v.findViewById(R.id.btnLoadExpert);
 		expertCounter = (TextView)v.findViewById(R.id.expertCounter);
-		
+		imgLock = (ImageView)v.findViewById(R.id.imgLock);
 		expertCounter.setText("0" + getString(R.string.counter_all));
 		Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font_counter.ttf");
 		expertCounter.setTypeface(font);
 		
 		btnLoadLesson.setOnClickListener(this);
+		imgLock.setOnClickListener(this);
 		return v;
 	}
 
@@ -57,10 +63,14 @@ public class Expert extends Fragment implements OnClickListener{
 			getActivity().startActivity(subActivity);
 			getActivity().overridePendingTransition(R.anim.in, R.anim.out);
 			break;
+		case R.id.imgLock:
+			Toast.makeText(getActivity(), getString(R.string.error_load_activity), Toast.LENGTH_SHORT).show();
+			break;
 
 		default:
 			break;
 		}
 	}
+
 
 }

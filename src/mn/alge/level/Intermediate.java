@@ -18,6 +18,8 @@ public class Intermediate extends Fragment implements OnClickListener{
 	
 	private Button btnLoadLesson;
 	private TextView intermediateCounter;
+
+	private ImageView imgLock;
 	private boolean isDownloaded = false;
 	
 	public static Intermediate newInstance(int num) {
@@ -40,7 +42,7 @@ public class Intermediate extends Fragment implements OnClickListener{
 		View v = inflater.inflate(R.layout.intermediate, container, false);
 		btnLoadLesson = (Button)v.findViewById(R.id.btnLoadIntermediate);
 		intermediateCounter = (TextView)v.findViewById(R.id.intermediateCounter);
-		
+		imgLock = (ImageView)v.findViewById(R.id.imgLock);
 		intermediateCounter.setText("0" + getString(R.string.counter_all));
 		
 		Typeface font = Typeface.createFromAsset(getActivity().getAssets(), "fonts/font_counter.ttf");
@@ -52,6 +54,7 @@ public class Intermediate extends Fragment implements OnClickListener{
 			btnLoadLesson.setEnabled(false);
 		
 		btnLoadLesson.setOnClickListener(this);
+		imgLock.setOnClickListener(this);
 		return v;
 	}
 
@@ -64,6 +67,9 @@ public class Intermediate extends Fragment implements OnClickListener{
 			
 			getActivity().startActivity(subActivity);
 			getActivity().overridePendingTransition(R.anim.in, R.anim.out);
+			break;
+		case R.id.imgLock:
+			Toast.makeText(getActivity(), getString(R.string.error_load_activity), Toast.LENGTH_SHORT).show();
 			break;
 
 		default:
